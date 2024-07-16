@@ -3,7 +3,10 @@ package main.java.com.alyaromin.check;
 public class CheckRunner {
 
 	public static void main(String[] args) {
-		System.out.println("Hello! This is CheckRunner.");
+		var argumentParser = new ArgumentParser(args);
+		System.out.println(argumentParser.getProducts());
+		System.out.println(argumentParser.getDiscountCard());
+		System.out.println(argumentParser.getBalanceDebitCard());
 
 	}
 
