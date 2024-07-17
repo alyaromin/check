@@ -5,7 +5,7 @@ public class CheckRunner {
 	public static void main(String[] args) {
 		var parser = new ArgumentParser(args);
 		
-		String check = CheckFactory.createCheck(parser.getProducts(), 
+		String check = CheckDirector.createCheck(parser.getProducts(), 
 												parser.getDiscountCard(), 
 												parser.getBalanceDebitCard());
 		System.out.println(check);

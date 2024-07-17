@@ -2,7 +2,7 @@ package main.java.com.alyaromin.check;
 
 import java.util.Map;
 
-public class CheckFactory {
+public class CheckDirector {
 	public static String createCheck(Map<Integer, Integer> products,
 									int discountCardNumber,
 									float balanceDebitCard) {
