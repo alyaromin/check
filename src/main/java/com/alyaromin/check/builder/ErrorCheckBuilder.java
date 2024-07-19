@@ -1,6 +1,10 @@
-package main.java.com.alyaromin.check;
+package main.java.com.alyaromin.check.builder;
 
 public class ErrorCheckBuilder implements CheckBuilder {
+
+	public ErrorCheckBuilder(Exception e) {
+		// TODO Auto-generated constructor stub
+	}
 
 	@Override
 	public String build() {

@@ -1,5 +1,7 @@
 package main.java.com.alyaromin.check;
 
+import main.java.com.alyaromin.check.builder.CheckDirector;
+
 public class CheckRunner {
 
 	public static void main(String[] args) {

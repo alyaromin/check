@@ -1,4 +1,4 @@
-package main.java.com.alyaromin.check;
+package main.java.com.alyaromin.check.builder;
 
 import java.util.Map;
 
@@ -10,11 +10,11 @@ public class CheckDirector {
 		
 		try {
 		// try to build normal check
-		builder = new NormalCheckBuilder();
+		builder = new NormalCheckBuilder(products, discountCardNumber, balanceDebitCard);
 				
 		} catch (Exception e) {
 		// build error check
-		builder = new ErrorCheckBuilder();
+		builder = new ErrorCheckBuilder(e);
 				
 		}
 		return builder.build();
