@@ -1,13 +1,15 @@
-package main.java.com.alyaromin.check;
+package main.java.com.alyaromin.check.view;
 
 import java.util.HashMap;
 import java.util.Map;
 
 
 public class ArgumentParser {
+	
 	private Map<Integer, Integer> products;
 	private int discountCard;
 	private float balanceDebitCard;
+	
 	
 	public ArgumentParser(String[] args) {
 		this.products = new HashMap<Integer, Integer>();
@@ -42,16 +44,9 @@ public class ArgumentParser {
 		
 	}
 
-	public Map<Integer, Integer> getProducts() {
-		return products;
-	}
-
-	public int getDiscountCard() {
-		return discountCard;
-	}
-
-	public float getBalanceDebitCard() {
-		return balanceDebitCard;
+	public Order getOrder() {
+		Order order = new Order(products, discountCard, balanceDebitCard);
+		return order;
 	}
 	
 }

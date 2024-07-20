@@ -1,4 +1,4 @@
-package main.java.com.alyaromin.check.builder;
+package main.java.com.alyaromin.check.model.builder;
 
 public class ErrorCheckBuilder implements CheckBuilder {
 
