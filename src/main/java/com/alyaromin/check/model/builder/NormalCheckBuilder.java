@@ -16,6 +16,11 @@ public class NormalCheckBuilder implements CheckBuilder {
 		// TODO initialize availableProducts list
 		// TODO initialize cartProducts list
 		// TODO initialize discountCards list
+		if (order.products().isEmpty()||
+			order.balanceDebitCard() <= 0) {
+			throw new IllegalArgumentException("BAD REQUEST");
+		}
+		
 	}
 
 	@Override

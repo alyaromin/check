@@ -1,15 +1,15 @@
 package main.java.com.alyaromin.check.model.builder;
 
 public class ErrorCheckBuilder implements CheckBuilder {
+	private Exception exception;
 
 	public ErrorCheckBuilder(Exception e) {
-		// TODO Auto-generated constructor stub
+		this.exception = e;
 	}
 
 	@Override
 	public String build() {
-		// TODO Auto-generated method stub
-		return "error check";
+		return "ERROR\n" + exception.getMessage();
 	}
 
 }
