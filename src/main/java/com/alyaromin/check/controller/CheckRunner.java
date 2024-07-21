@@ -1,6 +1,6 @@
 package main.java.com.alyaromin.check.controller;
 
-import main.java.com.alyaromin.check.model.builder.CheckDirector;
+import main.java.com.alyaromin.check.model.checkbilder.CheckDirector;
 import main.java.com.alyaromin.check.view.ArgumentParser;
 
 public class CheckRunner {

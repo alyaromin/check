@@ -1,4 +1,4 @@
-package main.java.com.alyaromin.check.model.builder;
+package main.java.com.alyaromin.check.model.checkbilder;
 
 import java.util.Map;
 
