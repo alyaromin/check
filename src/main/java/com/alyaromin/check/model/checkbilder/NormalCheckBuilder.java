@@ -4,6 +4,7 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 
 import com.opencsv.exceptions.CsvValidationException;
 
@@ -20,25 +21,37 @@ public class NormalCheckBuilder implements CheckBuilder {
 	private List discountCards;
 
 	public NormalCheckBuilder(Order order) throws Exception {
-		// TODO initialize availableProducts list
 		setAvailableProducts();
 		// TODO initialize cartProducts list
+		setCartProducts(order);
 		
-		if (order.products().isEmpty()||
-			order.balanceDebitCard() <= 0) {
-			throw new IllegalArgumentException("BAD REQUEST");
-		}
+		
 		// TODO initialize discountCards list
 		
 	}
 
+	
+
 	private void setAvailableProducts() throws Exception {
-		// TODO Auto-generated method stub
 		AvailableProductDAO dao = AvailableProductDAOFactory.getDAO(StorageTypes.csv);
-		
-		for (AvailableProduct product: dao.getAllAvailableProducts()) {
-			System.out.println(product);
-		}
+		availableProducts = dao.getAllAvailableProducts();
+	}
+	
+	private void setCartProducts(Order order) {
+		// TODO Auto-generated method stub
+		if (order.products().isEmpty()|| order.balanceDebitCard() <= 0) {
+			throw new IllegalArgumentException("BAD REQUEST");
+			}
+		order.products().forEach((productId, qty) -> {
+			Optional<AvailableProduct> availableProduct = availableProducts.stream().filter(obj -> obj.id() == productId).findFirst();
+			if (availableProduct.isPresent() && 
+					(availableProduct.get().quantity() >= qty)) {
+//				cartProducts.add();
+			}
+			else {
+				throw new IllegalArgumentException("BAD REQUEST");
+			};
+		});
 	}
 
 	@Override
